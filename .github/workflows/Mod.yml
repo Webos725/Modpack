@@ -30,6 +30,8 @@ jobs:
       # ビルドが成功したらJARファイルをアップロード
       - name: Upload JAR to GitHub Release
         uses: softprops/action-gh-release@v1
+        run: git tag v1.0.0
+             git push origin v1.0.0
         with:
           files: build/libs/*.jar  # JARファイルをアップロード
         env:
