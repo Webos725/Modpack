@@ -42,5 +42,55 @@ jobs:
           git add jar/${GITHUB_REF#refs/tags/}.jar || true
           git commit -m "Add jar for ${GITHUB_REF#refs/tags/}" || true
           git push origin 1.21 || true
+        env:name: Build and Upload Mod
+
+on:
+  push:
+    branches:
+      - 1.21
+    tags:
+      - '*'
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Upload JAR via GitHub API
+        if: startsWith(github.ref, 'refs/tags/')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/}"
+          FILE_PATH="jar/${VERSION}.jar"
+          API_URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${FILE_PATH}"
+          JAR_FILE=$(ls build/libs/*.jar | head -n 1)
+          CONTENT=$(base64 -w 0 "$JAR_FILE")
+
+          echo "Uploading $JAR_FILE to $FILE_PATH"
+
+          curl -X PUT "$API_URL" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d @- <<EOF
+{
+  "message": "Add JAR for version ${VERSION}",
+  "content": "${CONTENT}",
+  "branch": "1.21"
+}
+EOF
