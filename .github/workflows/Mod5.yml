@@ -30,9 +30,27 @@ jobs:
       - name: Copy built JAR to versioned folder
         if: startsWith(github.ref, 'refs/tags/')
         run: |
+          echo "GITHUB_REF=${GITHUB_REF}"
           VERSION="${GITHUB_REF#refs/tags/}"
           mkdir -p jar
-          cp build/libs/*.jar "jar/${VERSION}.jar"
+          # ビルドされたJARファイル名を確認
+          echo "Built JAR files:"
+          ls -l build/libs
+          
+          # 最初に見つかったJARファイルをコピーしてリネームする
+          JAR_FILE=$(find build/libs -type f -name "*.jar" | head -n 1)
+          if [ -z "$JAR_FILE" ]; then
+            echo "No JAR file found!"
+            exit 1
+          fi
+          echo "Found JAR: $JAR_FILE"
+          cp "$JAR_FILE" "jar/${VERSION}.jar"
+
+      - name: List files to upload
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          echo "Files in jar/:"
+          ls -l jar
 
       - name: Upload JAR to GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
