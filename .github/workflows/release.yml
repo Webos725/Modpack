@@ -1,0 +1,37 @@
+name: Release Mod
+
+on:
+  push:
+    tags:
+      - '*'  # タグpushだけで実行される
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: built-jar
+          path: jar
+
+      - name: List downloaded files
+        run: |
+          echo "Files in jar/:"
+          ls -l jar
+
+      - name: Rename JAR for release
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/}"
+          ORIGINAL_JAR=$(find jar -type f -name "*.jar" | head -n 1)
+          echo "Found JAR: $ORIGINAL_JAR"
+          mv "$ORIGINAL_JAR" "jar/${VERSION}.jar"
+
+      - name: Upload JAR to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: jar/${{ github.ref_name }}.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
