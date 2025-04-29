@@ -2,6 +2,8 @@ name: Release Mod
 
 on:
   push:
+    branches:
+      - "1.21"
     tags:
       - '*'  # タグpushだけで実行される
 
