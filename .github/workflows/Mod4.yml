@@ -87,10 +87,3 @@ jobs:
           curl -X PUT "$API_URL" \
             -H "Authorization: token $GITHUB_TOKEN" \
             -H "Content-Type: application/json" \
-            -d @- <<EOF
-{
-  "message": "Add JAR for version ${VERSION}",
-  "content": "${CONTENT}",
-  "branch": "1.21"
-}
-EOF
