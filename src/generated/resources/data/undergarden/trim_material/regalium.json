@@ -1,9 +1,0 @@
-{
-  "asset_name": "regalium",
-  "description": {
-    "color": "#FCD87D",
-    "translate": "trim_material.swamplands.regalium"
-  },
-  "ingredient": "swamplands:regalium_crystal",
-  "item_model_index": 0.6
-}

@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "swamplands:block/regalium_block_top",
-        "side": "swamplands:block/regalium_block_side"
-    }
-}

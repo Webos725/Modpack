@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "swamplands:block/depthrock",
-    "side": "swamplands:block/depthrock",
-    "top": "swamplands:block/depthrock"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "swamplands:block/stripped_smogstem_log_side",
-    "side": "swamplands:block/stripped_smogstem_log_side"
-  }
-}

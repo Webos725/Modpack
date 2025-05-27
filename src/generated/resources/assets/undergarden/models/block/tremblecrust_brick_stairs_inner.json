@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "swamplands:block/tremblecrust_bricks",
-    "side": "swamplands:block/tremblecrust_bricks",
-    "top": "swamplands:block/tremblecrust_bricks"
-  }
-}

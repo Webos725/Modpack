@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "swamplands:block/stripped_wigglewood_log_end",
-    "side": "swamplands:block/stripped_wigglewood_log_side"
-  }
-}

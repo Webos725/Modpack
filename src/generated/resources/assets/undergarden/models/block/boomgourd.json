@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "swamplands:block/boomgourd_top",
-    "side": "swamplands:block/boomgourd_side",
-    "top": "swamplands:block/boomgourd_top"
-  }
-}

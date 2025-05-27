@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=north": { "model": "swamplands:block/shard_o_lantern" },
-        "facing=south": { "model": "swamplands:block/shard_o_lantern", "y": 180 },
-        "facing=west":  { "model": "swamplands:block/shard_o_lantern", "y": 270 },
-        "facing=east":  { "model": "swamplands:block/shard_o_lantern", "y": 90 }
-    }
-}

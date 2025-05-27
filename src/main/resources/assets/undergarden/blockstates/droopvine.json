@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "glowy=false":	{ "model": "swamplands:block/droopvine" },
-       
-        "glowy=true":  { "model": "swamplands:block/droopvine_glowy" }
-    }
-}

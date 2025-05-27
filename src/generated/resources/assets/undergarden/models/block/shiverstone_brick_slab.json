@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "swamplands:block/shiverstone_bricks",
-    "side": "swamplands:block/shiverstone_bricks",
-    "top": "swamplands:block/shiverstone_bricks"
-  }
-}

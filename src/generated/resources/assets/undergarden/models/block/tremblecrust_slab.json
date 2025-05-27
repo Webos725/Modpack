@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "swamplands:block/tremblecrust",
-    "side": "swamplands:block/tremblecrust",
-    "top": "swamplands:block/tremblecrust"
-  }
-}

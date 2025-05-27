@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "swamplands:block/carved_gloomgourd",
-    "side": "swamplands:block/gloomgourd_side",
-    "top": "swamplands:block/gloomgourd_top"
-  }
-}

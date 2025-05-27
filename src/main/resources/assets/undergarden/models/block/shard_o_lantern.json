@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "swamplands:block/gloomgourd_top",
-        "front": "swamplands:block/gloom_o_lantern_shard",
-        "side": "swamplands:block/gloomgourd_side"
-    }
-}

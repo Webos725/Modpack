@@ -1,8 +1,0 @@
-{
-    "parent": "block/template_farmland",
-    "textures": {
-        "particle": "swamplands:block/deepsoil",
-        "dirt": "swamplands:block/deepsoil",
-        "top": "swamplands:block/deepsoil_farmland_moist"
-    }
-}

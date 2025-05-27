@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "swamplands:block/shiverstone",
-    "side": "swamplands:block/shiverstone",
-    "top": "swamplands:block/shiverstone"
-  }
-}

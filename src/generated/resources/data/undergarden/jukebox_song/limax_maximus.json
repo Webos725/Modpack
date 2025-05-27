@@ -1,8 +1,0 @@
-{
-  "comparator_output": 1,
-  "description": {
-    "translate": "jukebox_song.swamplands.limax_maximus"
-  },
-  "length_in_seconds": 161.0,
-  "sound_event": "swamplands:music.disc.limax_maximus"
-}

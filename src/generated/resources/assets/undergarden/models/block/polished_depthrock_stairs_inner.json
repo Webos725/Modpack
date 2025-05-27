@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "swamplands:block/polished_depthrock",
-    "side": "swamplands:block/polished_depthrock",
-    "top": "swamplands:block/polished_depthrock"
-  }
-}

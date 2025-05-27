@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "swamplands:block/cloggrum_tiles",
-    "side": "swamplands:block/cloggrum_tiles",
-    "top": "swamplands:block/cloggrum_tiles"
-  }
-}

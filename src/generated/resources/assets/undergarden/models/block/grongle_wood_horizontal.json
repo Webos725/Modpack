@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "swamplands:block/grongle_log_side",
-    "side": "swamplands:block/grongle_log_side"
-  }
-}

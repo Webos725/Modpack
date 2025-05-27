@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "swamplands:block/wigglewood_planks",
-    "side": "swamplands:block/wigglewood_planks",
-    "top": "swamplands:block/wigglewood_planks"
-  }
-}
