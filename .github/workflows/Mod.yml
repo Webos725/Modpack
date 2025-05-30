@@ -10,13 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Tconxリポジトリをチェックアウト
-      - name: Checkout Tconx repository
+      # 1. Modpackリポジトリをチェックアウト
+      - name: Checkout Modpack repository
+        uses: actions/checkout@v3
+
+      # 2. Tconxリポジトリのsrcフォルダだけを上書きコピー
+      - name: Checkout Tconx src
         uses: actions/checkout@v3
         with:
           repository: Konnitiwa768/Tconx
-          ref: main # 必要なブランチ名に変更してください
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: 1.21 # 必要なブランチ名に変更
+          sparse-checkout: |
+            src
+          path: tconx-src
+
+      - name: Overwrite src directory
+        run: |
+          rm -rf src
+          cp -r tconx-src/src ./src
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
