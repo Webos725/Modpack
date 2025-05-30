@@ -3,36 +3,36 @@ name: Build and Upload Mod
 on:
   push:
     branches:
-      - 1.21  # mainブランチにpushされた時に実行
+      - 1.21
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # リポジトリのコードをチェックアウト
-      - name: Checkout code
+      # Tconxリポジトリをチェックアウト
+      - name: Checkout Tconx repository
         uses: actions/checkout@v3
+        with:
+          repository: Konnitiwa768/Tconx
+          ref: main # 必要なブランチ名に変更してください
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew  # ★ここを追加！
-        
-      # Java 17 (Temurin) をセットアップ
+        run: chmod +x ./gradlew
+
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'temurin'  # adoptopenjdkではなくtemurinに変更！
+          distribution: 'temurin'
 
-      # Gradleでビルド
       - name: Build with Gradle
         run: ./gradlew build
 
-      # ビルドが成功したらJARファイルをアップロード
       - name: Upload JAR to GitHub Release
         uses: softprops/action-gh-release@v1
-        run: git tag v1.0.0
-             git push origin v1.0.0
         with:
-          files: build/libs/*.jar  # JARファイルをアップロード
+          files: build/libs/*.jar
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # GitHub SecretsのTOKENを使用
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
